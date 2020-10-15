@@ -1,0 +1,22 @@
+syntax = "proto3";
+package brutonavenue;
+
+//option java_multiple_files = true;
+//option java_package = "org.github.johnlayton.brutonavenue";
+//option java_outer_classname = "brutonavenue";
+//option objc_class_prefix = "HLW";
+
+
+service BrutonavenueService {
+  rpc SayHello (BrutonavenueRequest) returns (BrutonavenueResponse) {}
+}
+
+message BrutonavenueRequest {
+  int64 id = 1;
+  string name = 2;
+}
+
+message BrutonavenueResponse {
+  int64 id = 1;
+  string message = 2;
+}

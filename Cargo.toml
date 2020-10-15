@@ -1,0 +1,69 @@
+[package]
+name = "brutonavenue"
+version = "0.0.1"
+authors = ["John Layton <john.layton@mebank.com.au>"]
+edition = "2018"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "brutonavenue"
+path = "src/brutonavenue/server.rs"
+
+[[bin]]
+name = "helloworld"
+path = "src/helloworld/server.rs"
+
+[dependencies]
+ferris-says = "0.2.0"
+prost = "0.6.1"
+tonic = "0.2.0"
+#tokio = "0.2.18"
+futures = { version = "0.3", default-features = false, features = ["alloc"] }
+#tonic = { version="0.2.0", features = [ "tls" ] }
+tokio = { version="0.2.18", features = [ "stream", "macros" ] }
+
+#tonic = { features = ["tls"] }
+#tokio = { version = "0.2", features = ["rt-threaded", "time", "stream", "fs", "macros", "uds"] }
+#futures = { version = "0.3", default-features = false, features = ["alloc"] }
+async-stream = "0.2"
+tower = "0.3"
+## Required for routeguide
+#serde = { version = "1.0", features = ["derive"] }
+#serde_json = "1.0"
+#rand = "0.7"
+# Tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.2", features = ["tracing-log"] }
+tracing-attributes = "0.1"
+tracing-futures = "0.2"
+# Required for wellknown types
+#prost-types = "0.6"
+## Hyper example
+#hyper = "0.13"
+#warp = { version = "0.2", default-features = false }
+#http = "0.2"
+#http-body = "0.3"
+#pin-project = "0.4.17"
+## Health example
+#listenfd = "0.3"
+
+[build-dependencies]
+tonic-build = "0.2.0"
+
+#[[bin]] # Bin to run the HelloWorld gRPC server
+#name = "helloworld-server"
+#path = "src/server.rs"
+#
+#[[bin]] # Bin to run the HelloWorld gRPC client
+#name = "helloworld-client"
+#path = "src/client.rs"
+#
+#[dependencies]
+#tonic = "0.2"
+#prost = "0.6"
+#tokio = { version = "0.2", features = ["macros"] }
+#
+#[build-dependencies]
+#tonic-build = "0.2"
